@@ -90,6 +90,18 @@ p{
   background-color: var(--grey-bg);
   position: relative;
   margin-bottom: 100px;
+  overflow: hidden;
+}
+
+.slider-item {
+  transform: translateX(-100%);
+  position: absolute;
+  top: 0;
+}
+
+.slider-item.active {
+  transform: translateX(0);
+  position: static;
 }
 
 .slider-item-text{
@@ -100,6 +112,12 @@ p{
   background-size: 29px auto;
   background-position: top 40px left 25px;
   flex: 1 0 0%;
+  transition: opacity 2s ease;
+  opacity: 0;
+}
+
+.slider-item.active .slider-item-text{
+  opacity: 1;
 }
 
 .slider-item-text p{
@@ -148,6 +166,8 @@ p.slider-item-author{
   background-size: 7px auto;
   background-color: var(--primary-orange);
   cursor: pointer;
+  padding: 0;
+  outline: none;
 }
 
 .slider-nav-left:hover, .slider-nav-right:hover, .slider-nav-left:active, .slider-nav-right:active{
